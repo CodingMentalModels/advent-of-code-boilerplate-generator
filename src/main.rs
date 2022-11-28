@@ -14,17 +14,17 @@ fn main() {
 
     let input_path = Path::join(Path::new(OUTPUT_PATH), "input/input.txt");
     let input_output_path = Path::join(Path::new(OUTPUT_PATH), "src/input/input.rs");
-    templatizer.render_template_to_file("input.txt", &json!({"filepath": input_path}), &input_output_path);
+    templatizer.render_template_to_file("input.txt", &json!({"filepath": input_path}), &input_output_path).unwrap();
 
     let input_mod_path = Path::join(Path::new(OUTPUT_PATH), "src/input/mod.rs");
-    templatizer.render_template_to_file("mod.txt", &json!({"modules": ["input"]}), &input_mod_path);
+    templatizer.render_template_to_file("mod.txt", &json!({"modules": ["input"]}), &input_mod_path).unwrap();
 
-    let problem_mod_path = Path::join(Path::new(OUTPUT_PATH), "src/problem/mod.rs");
-    templatizer.render_template_to_file("mod.txt", &json!({"modules": (1..25).into_iter().map(|x| format!("{}{:02}", "problem_", x)).collect::<Vec<_>>()}), &problem_mod_path);
+    let problem_mod_path = Path::join(Path::new(OUTPUT_PATH), "src/problems/mod.rs");
+    templatizer.render_template_to_file("mod.txt", &json!({"modules": (1..26).into_iter().map(|x| format!("{}{:02}", "problem_", x)).collect::<Vec<_>>()}), &problem_mod_path).unwrap();
 
-    for i in 1..25 {
-        let problem_path = Path::join(Path::new(OUTPUT_PATH), &format!("src/problem/problem_{:02}.rs", i));
-        templatizer.render_template_to_file("problem.txt", &json!({"problem_number": i}), &problem_path);
+    for i in 1..26 {
+        let problem_path = Path::join(Path::new(OUTPUT_PATH), &format!("src/problems/problem_{:02}.rs", i));
+        templatizer.render_template_to_file("problem.txt", &json!({"problem_number": format!("{:02}", i)}), &problem_path).unwrap();
     }
 }
 

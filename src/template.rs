@@ -93,12 +93,11 @@ mod test_template_loading_and_rendering {
 
         let templatized_mod = templatizer.render_template(
             "mod.txt",
-            &json!({"modules": (1..3).into_iter().map(|x| format!("{}{:02}", "problem_", x)).collect::<Vec<_>>()})
+            &json!({"modules": (1..4).into_iter().map(|x| format!("{}{:02}", "problem_", x)).collect::<Vec<_>>()})
         ).unwrap();
 
-        assert_eq!(templatized_mod.lines().count(), 4);
+        assert_eq!(templatized_mod.lines().count(), 3);
         assert_eq!(templatized_mod.lines().next(), Some("pub mod problem_01;"));
-        assert_eq!(templatized_mod.lines().last(), Some(""));
     }
 
     #[test]

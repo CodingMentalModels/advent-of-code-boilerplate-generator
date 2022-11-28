@@ -1,11 +1,11 @@
 use crate::input::input::InputParser;
 
-pub fn solve_problem_{{problem_number}}a(input: Vec<i32>) -> usize {
+pub fn solve_problem_{{problem_number}}a(input: Vec<String>) -> usize {
     unimplemented!();
 }
 
-fn solve_problem_{{problem_number}}b(input: Vec<i32>) -> usize {
-    unimplemented();
+fn solve_problem_{{problem_number}}b(input: Vec<String>) -> usize {
+    unimplemented!();
 }
 
 #[cfg(test)]
@@ -17,22 +17,22 @@ mod test_problem_{{problem_number}} {
     fn test_problem_{{problem_number}}a_passes() {
         
         let input = InputParser::new().parse_as_string("input_{{problem_number}}.txt").unwrap();
-        let shorted_input = input.iter().take(10).map(|i| *i).collect();
+        let shorted_input = input.iter().take(10).map(|i| i.clone()).collect();
 
-        assert_eq!(solve_{{problem_number}}a(shorted_input), 0);
+        assert_eq!(solve_problem_{{problem_number}}a(shorted_input), 0);
 
-        let answer = solve_{{problem_number}}a(input);
+        let answer = solve_problem_{{problem_number}}a(input);
         assert_eq!(answer, 0);
     }
     
     #[test]
     fn test_problem_{{problem_number}}b_passes() {
         let input = InputParser::new().parse_as_string("input_{{problem_number}}.txt").unwrap();
-        let shorted_input = input.iter().take(10).map(|i| *i).collect();
+        let shorted_input = input.iter().take(10).map(|i| i.clone()).collect();
 
-        assert_eq!(solve_{{problem_number}}b(shorted_input), 0);
+        assert_eq!(solve_problem_{{problem_number}}b(shorted_input), 0);
 
-        let answer = solve_{{problem_number}}b(input);
+        let answer = solve_problem_{{problem_number}}b(input);
         assert_eq!(answer, 0);
     }
 
