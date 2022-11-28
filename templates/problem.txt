@@ -1,0 +1,39 @@
+use crate::input::input::InputParser;
+
+pub fn solve_problem_{{problem_number}}a(input: Vec<i32>) -> usize {
+    unimplemented!();
+}
+
+fn solve_problem_{{problem_number}}b(input: Vec<i32>) -> usize {
+    unimplemented();
+}
+
+#[cfg(test)]
+mod test_problem_{{problem_number}} {
+
+    use super::*;
+
+    #[test]
+    fn test_problem_{{problem_number}}a_passes() {
+        
+        let input = InputParser::new().parse_as_string("input_{{problem_number}}.txt").unwrap();
+        let shorted_input = input.iter().take(10).map(|i| *i).collect();
+
+        assert_eq!(solve_{{problem_number}}a(shorted_input), 0);
+
+        let answer = solve_{{problem_number}}a(input);
+        assert_eq!(answer, 0);
+    }
+    
+    #[test]
+    fn test_problem_{{problem_number}}b_passes() {
+        let input = InputParser::new().parse_as_string("input_{{problem_number}}.txt").unwrap();
+        let shorted_input = input.iter().take(10).map(|i| *i).collect();
+
+        assert_eq!(solve_{{problem_number}}b(shorted_input), 0);
+
+        let answer = solve_{{problem_number}}b(input);
+        assert_eq!(answer, 0);
+    }
+
+}
